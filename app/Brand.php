@@ -19,4 +19,10 @@ class Brand extends Model
         'note',
 
     ];
+    public function categories() {
+        return $this->hasMany(App\Category::class);
+    }
+    public function sub_categories() {
+        return $this->hasMany(App\SubCategory::class);
+    }
 }

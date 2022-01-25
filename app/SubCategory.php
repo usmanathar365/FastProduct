@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sub_Category extends Model
+class SubCategory extends Model
 {
     protected $fillable=[
         'category_id',
@@ -15,4 +15,10 @@ class Sub_Category extends Model
         'status',
         'note',
     ];
+    public function brand() {
+        return $this->belongsTo(Brand::class);
+    }
+    public function categories() {
+        return $this->belongsTo(Category::class);
+    }
 }

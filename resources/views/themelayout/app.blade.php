@@ -5,7 +5,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="format-detection" content="telephone=no" />
             <meta name="csrf-token" content="{{ csrf_token() }}"> 
-        <title>Stroyka Admin - eCommerce Dashboard Template</title>
+        <title>Fastech Admin - eCommerce Dashboard Template</title>
         <!-- icon -->
         <link rel="icon" type="image/png" href="images/favicon.png" />
         <!-- fonts -->

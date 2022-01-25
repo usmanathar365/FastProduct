@@ -27,12 +27,12 @@ Route::get('/vendor-home', 'VendorController@index')->name('vendor.home')->middl
 // Route::group(['prefix'=>'Vendor'  ], function() {
 
     ////////////////// Categories Routes   //////////////////////////////
-    Route::get('Vendor-Categories', 'ProductController@Categories')->name('categories')->middleware('vendor');
-    Route::get('Vendor-AddCategory', 'ProductController@AddCategory')->name('add.category')->middleware('vendor');
-    Route::post('Vendor-SaveCategory', 'ProductController@SaveCategory')->name('save.category')->middleware('vendor');
-    Route::post('Edit-Category', 'ProductController@EditCategory')->name('edit.category')->middleware('vendor');
-    Route::post('Vendor-UpdateCategory', 'ProductController@UpdateCategory')->name('update.category')->middleware('vendor');
-    Route::get('Vendor-DeleteCategory', 'ProductController@DeleteCategory')->name('delete.category')->middleware('vendor');
+    Route::get('Vendor-Categories', 'CategoryController@Categories')->name('categories')->middleware('vendor');
+    Route::get('Vendor-AddCategory', 'CategoryController@AddCategory')->name('add.category')->middleware('vendor');
+    Route::post('Vendor-SaveCategory', 'CategoryController@SaveCategory')->name('save.category')->middleware('vendor');
+    Route::post('Edit-Category', 'CategoryController@EditCategory')->name('edit.category')->middleware('vendor');
+    Route::post('Vendor-UpdateCategory', 'CategoryController@UpdateCategory')->name('update.category')->middleware('vendor');
+    Route::get('Vendor-DeleteCategory', 'CategoryController@DeleteCategory')->name('delete.category')->middleware('vendor');
     
     //////////////////////  Products Routes ////////////////////////////////
     Route::get('Vendor-Products', 'ProductController@Products')->name('products')->middleware('vendor');

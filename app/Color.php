@@ -10,6 +10,6 @@ class Color extends Model
         'name',
         'brand_id',
         'hex',
-        'description'
+        'description',
     ];
 }

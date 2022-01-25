@@ -47,27 +47,28 @@
                                             </th>
                                             <th class="min-w-15x">Name</th>
                                             <th>Description</th>
-                                            <th>Items</th>
-                                            <th>Visibility</th>
+                                            <th>UserName</th>
+                                            <th>Status</th>
                                             <th style="width:100px;">Image</th>
                                             <th class="w-min" data-orderable="false"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       
+                                    @if(isset($brands) && count($brands) > 0)
+                                        @foreach($brands as $brand)
                                         <tr>
                                             <td><input type="checkbox" class="form-check-input m-0 fs-exact-16 d-block" aria-label="..." /></td>
-                                            <td><a href="#" class="text-reset">name</a></td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                            <td><div class="badge badge-sa-success">Visible</div></td>
-                                            <td><img src="" width="100%"></td>
+                                            <td><a href="#" class="text-reset">{{$brand->name}}</a></td>
+                                            <td>{{strlen($brand->description) > 20 ? substr($brand->description,0,20)."..." : $brand->description}}</td>
+                                            <td>{{$brand->username}}</td>
+                                            <td><div class="badge badge-sa-success">{{$brand->status}}</div></td>
+                                            <td><img src="images/{{$brand->feature_image}}" width="100%"></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <button
                                                         class="btn btn-sa-muted btn-sm"
                                                         type="button"
-                                                        id="category-context-menu-0"
+                                                        id="brand-context-menu-0"
                                                         data-bs-toggle="dropdown"
                                                         aria-expanded="false"
                                                         aria-label="More"
@@ -79,16 +80,18 @@
                                                         </svg>
                                                     </button>
                                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="category-context-menu-0">
-                                                        <li><a class="dropdown-item" style="cursor: pointer;">Edit</a></li>
+                                                        <li><a class="dropdown-item" style="cursor: pointer;"  >Edit</a></li>
                                                         <li><a class="dropdown-item" style="cursor: pointer;">Duplicate</a></li>
                                                         <li><a class="dropdown-item" style="cursor: pointer;">Add tag</a></li>
                                                         <li><a class="dropdown-item" style="cursor: pointer;">Remove tag</a></li>
                                                         <li><hr class="dropdown-divider" /></li>
-                                                        <li><a class="dropdown-item text-danger" style="cursor: pointer;">Delete</a></li>
+                                                        <li><a class="dropdown-item text-danger" style="cursor: pointer;"  >Delete</a></li>
                                                     </ul>
                                                 </div>
                                             </td>
                                         </tr>
+                                        @endforeach
+                                         @endif
                                      
                                     </tbody>
                                 </table>

@@ -8,7 +8,7 @@ class Coupon extends Model
 {
     protected $fillable=[
         'code',
-       'description',
+        'description',
         'discount_type',
         'coupon_amount',
         'allow_free_shipping',

@@ -9,26 +9,26 @@ use App\Brand;
 class BrandController extends Controller
 {
     public function Brand(){
-        return view('Vendor.Brands');
+        $brands=Brand::get();
+        return view('Vendor.Brands',compact('brands'));
     }
     public function AddBrand(){
         return view('Vendor.AddBrand');
         
-       }
-
+    }
     public function SaveBrand(Request $request){
     
         $rules = array(
-            'name'             => 'required|string|min:3|max:255',
-            'username'             => 'required|string|min:3|max:255',                        
-            'password'             => 'required|string|min:3|max:255',                        
-            'email'             => 'required|string|min:3|max:255',                        
-            'contact'             => 'required|integer|min:3',    
-            'status'             => 'required|string|min:3|max:255',                        
-            'address'             => 'required|string|min:3|max:255',                        
-            'note'             => 'required|string|min:3|max:255',                          
-            'brand_description'=> 'required|string|min:3|max:260',                          
-            'image'            => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'name'  => 'required|string|min:3|max:255',
+            'username'   => 'required|string|min:3|max:255',                        
+            'password'  => 'required|string|min:3|max:255',                        
+            'email'  => 'required|string|min:3|max:255',                        
+            'contact' => 'required|integer|min:3',    
+            'status' => 'required|string|min:3|max:255',                        
+            'address' => 'required|string|min:3|max:255',                        
+            'note'  => 'required|string|min:3|max:255',                          
+            'description' =>    'required|string|min:3|max:260',                          
+            'image'  => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         );
         
         $validator = Validator::make($request->all(), $rules);
@@ -48,7 +48,7 @@ class BrandController extends Controller
             
             $Brand=new Brand();
             $Brand->name=$request->name;;
-            $Brand->description=$request->brand_description;
+            $Brand->description=$request->description;
             $Brand->username=$request->username;
             $Brand->email=$request->email;
             $Brand->password=$request->password;

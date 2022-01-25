@@ -23,17 +23,17 @@
                                         <nav class="mb-2" aria-label="breadcrumb">
                                             <ol class="breadcrumb breadcrumb-sa-simple">
                                                 <li class="breadcrumb-item"><a href="{{route('vendor.home')}}">Dashboard</a></li>
-                                                <li class="breadcrumb-item"><a href="{{route('categories')}}">Brands</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">@if(isset($category)) Edit @else Add @endif Brand</li>
+                                                <li class="breadcrumb-item"><a href="{{route('brand')}}">Brands</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">@if(isset($brand)) Edit @else Add @endif Brand</li>
                                             </ol>
                                         </nav>
-                                        <h1 class="h3 m-0">@if(isset($category)) Edit @else Add @endif Brand</h1>
+                                        <h1 class="h3 m-0">@if(isset($brand)) Edit @else Add @endif Brand</h1>
                                     </div>
                                     
                                     <div class="col-auto d-flex">
                                         <a href="#" class="btn btn-secondary me-3">Duplicate</a>
                                         <a class="btn btn-primary" onclick="changeHtmlContent();">
-                                         @if(isset($category)) {{_('Update')}} @else {{_('Save')}} @endif</a>
+                                         @if(isset($brand)) {{_('Update')}} @else {{_('Save')}} @endif</a>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                 {{ Session::get('message') }}
                                 </div>
                                 @endif
-                            <form action="@if(isset($category)) {{route('update.brand')}} @else {{route('save.brand')}} @endif" method="post" id="category-form" enctype="multipart/form-data"> 
+                            <form action="@if(isset($category)) {{route('update.brand')}} @else {{route('save.brand')}} @endif" method="post" id="brand-form" enctype="multipart/form-data"> 
                                 @csrf
                             <div class="sa-entity-layout" data-sa-container-query='{"920":"sa-entity-layout--size--md","1100":"sa-entity-layout--size--lg"}'>
                                 <div class="sa-entity-layout__body">
@@ -97,7 +97,7 @@
                                                 
                                                 <div class="mb-4">
                                                     <label for="form-category/catdescription" class="form-label">Description</label>
-                                                    <textarea id="form-category/catdescription" class="sa-quill-control form-control textareacontent" name="brand_description" rows="7">@if(isset($brand)) {{$brand->description}} @else {{{old('brand_description')}}} @endif</textarea>
+                                                    <textarea id="form-category/catdescription" class="sa-quill-control form-control textareacontent" name="description" rows="7">@if(isset($brand)) {{$brand->description}} @else {{{old('description')}}} @endif</textarea>
                                                 </div>
                                                 
                                             </div>
@@ -173,7 +173,7 @@
                         var a =document.querySelectorAll('.ql-editor p span')[0].firstChild.nodeValue;
                     }
                      $(".textareacontent").val(a);
-                    document.getElementById('category-form').submit();
+                    document.getElementById('brand-form').submit();
                 }
                 </script>
 

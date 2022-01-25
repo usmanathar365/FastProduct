@@ -25,10 +25,10 @@ class CreateSubCategoriesTable extends Migration
             $table->timestamps();
         });
         Schema::table('sub_categories', function($table) {
-        $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-        $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
-            
-        });
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
+                
+            });
     }
 
     /**
