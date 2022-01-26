@@ -16,7 +16,6 @@ class Product extends Model
         'description',
         'short_description',
         'meterial',
-        'meterial',
         'type',
         'attributes', 
         'rank',

@@ -16,7 +16,7 @@ class CreateCreditCardsTable extends Migration
         Schema::create('credit_cards', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id')->unsigned();
-            $table->integer('card_number')->nullable();
+            $table->string('card_number')->nullable();
             $table->integer('cvc')->nullable();
             $table->string('expiry_date',100)->nullable();
             $table->string('note',250)->nullable();

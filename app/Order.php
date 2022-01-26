@@ -19,7 +19,6 @@ class Order extends Model
          'amount',
          'discount',
          'status',
-         'order_details_id',
          'note',
      ];
 }

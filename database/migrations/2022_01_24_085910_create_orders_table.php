@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id')->unsigned();
-            $table->integer('order_number');
+            $table->string('order_number');
             $table->string('payment_type',20)->nullable()->comment('COD, VISA, MASTERCARD, JAZZCASH, EASYPAISA');
             $table->string('payment_status', 25)->nullable();
             $table->string('order_date', 500)->nullable();
@@ -27,7 +27,6 @@ class CreateOrdersTable extends Migration
             $table->float('amount', 10,2);
             $table->float('discount', 10,2);
             $table->string('status',50)->nullable();
-            $table->integer('order_details_id')->nullable();
             $table->string('note',50)->nullable();
             $table->timestamps();
         });

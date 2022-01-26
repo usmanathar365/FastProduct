@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->string('short_description', 500)->nullable();
             $table->string('meterial', 20)->nullable();
             $table->string('type', 10)->nullable();
-            $table->string('attributes',10)->nullable();
+            $table->string('attributes',10);
             $table->integer('rank')->nullable();
             $table->string('note',100)->nullable();
             $table->string('feature_image',100)->nullable();
